@@ -40,7 +40,6 @@
             text-align: center;
         }
 
-        /* Container to style the form area */
         .iframe-container {
             width: 95%;
             max-width: 640px;
@@ -48,7 +47,7 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-bottom: 50px;
+            margin-bottom: 20px;
         }
 
         iframe {
@@ -58,9 +57,19 @@
             display: block;
         }
 
+        /* Style for a JavaScript-controlled button */
+        .refresh-btn {
+            margin-bottom: 50px;
+            padding: 10px 20px;
+            background-color: #c58282;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Times New Roman', serif;
+        }
+
         @media screen and (max-width: 768px) {
-            #head a { font-size: 18px; }
-            .form-title { font-size: 26px; }
             iframe { height: 600px; }
         }
     </style>
@@ -71,13 +80,14 @@
         <a href="index.html">Home</a>
         <a href="about.html">About me</a>
         <a href="https://www.facebook.com/share/1HZkqhFwaZ/" target="_blank">Facebook</a>
-        <a href="https://www.instagram.com/subexya_shah?igsh=cnowY245aHZid2Nh" target="_blank">Instagram</a>
+        <a href="https://www.instagram.com/subexya_shah" target="_blank">Instagram</a>
     </nav>
 
     <h2 class="form-title">Book an Appointment</h2>
 
     <div class="iframe-container">
         <iframe 
+            id="googleForm"
             src="https://docs.google.com/forms/d/e/1FAIpQLSeYiBGEFK1ZZPsoepPhxJhU9S6s8y1BJ9EQgAMeLB0IKz-1kQ/viewform?embedded=true" 
             frameborder="0" 
             marginheight="0" 
@@ -85,6 +95,15 @@
             Loading…
         </iframe>
     </div>
+
+    <button class="refresh-btn" onclick="reloadForm()">Reload Form</button>
+
+    <script>
+        function reloadForm() {
+            var iframe = document.getElementById('googleForm');
+            iframe.src = iframe.src;
+        }
+    </script>
 
 </body>
 </html>
