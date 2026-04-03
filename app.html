@@ -18,33 +18,61 @@
 
         #head {
             display: flex;
+            flex-wrap: wrap;
             gap: 25px;
-            padding: 20px;
+            margin: 20px auto;
+            padding: 10px;
+            justify-content: center;
         }
 
         #head a {
-            font-size: 20px;
+            font-size: 22px;
             text-decoration: none;
             color: #c58282;
+        }
+
+        .form-title {
+            font-size: 30px;
+            margin: 20px 0;
+            text-align: center;
         }
 
         .iframe-container {
             width: 95%;
             max-width: 640px;
-            margin-top: 20px;
-            background: #fff;
-            border-radius: 10px;
+            background-color: #ffffff;
+            border-radius: 15px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 100px;
         }
 
         iframe {
             width: 100%;
-            height: 750px;
+            height: 800px;
             border: none;
+            display: block;
         }
 
-        @media screen and (max-width: 600px) {
-            iframe { height: 550px; }
+        .refresh-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            padding: 15px 25px;
+            background-color: #c58282;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 1000;
+        }
+
+        @media screen and (max-width: 768px) {
+            iframe { height: 600px; }
+            .form-title { font-size: 24px; }
+            #head a { font-size: 18px; }
         }
     </style>
 </head>
@@ -53,16 +81,27 @@
     <nav id="head">
         <a href="index.html">Home</a>
         <a href="about.html">About me</a>
+        <a href="https://www.facebook.com/share/1HZkqhFwaZ/" target="_blank">Facebook</a>
     </nav>
 
-    <h2>Book an Appointment</h2>
+    <h2 class="form-title">Book an Appointment</h2>
 
     <div class="iframe-container">
         <iframe 
+            id="appointmentForm"
             src="https://docs.google.com/forms/d/e/1FAIpQLSeYiBGEFK1ZZPsoepPhxJhU9S6s8y1BJ9EQgAMeLB0IKz-1kQ/viewform?embedded=true">
             Loading…
         </iframe>
     </div>
+
+    <button class="refresh-btn" onclick="refreshForm()">Reload Form</button>
+
+    <script>
+        function refreshForm() {
+            const frame = document.getElementById('appointmentForm');
+            frame.src = frame.src;
+        }
+    </script>
 
 </body>
 </html>
