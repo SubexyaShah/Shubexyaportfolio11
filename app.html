@@ -18,8 +18,12 @@
 
         #head {
             display: flex;
+            flex-wrap: wrap;
             gap: 30px;
-            padding: 20px;
+            margin: 20px auto;
+            width: fit-content;
+            padding: 10px;
+            align-items: center;
             justify-content: center;
         }
 
@@ -27,16 +31,24 @@
             font-size: 22px;
             text-decoration: none;
             color: #c58282;
+            font-weight: lighter;
         }
 
-        .form-container {
-            width: 100%;
+        .form-title {
+            font-size: 32px;
+            margin: 40px 0 20px 0;
+            text-align: center;
+        }
+
+        /* Container to style the form area */
+        .iframe-container {
+            width: 95%;
             max-width: 640px;
-            margin-top: 30px;
-            background: #ffffff;
+            background-color: #ffffff;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 50px;
         }
 
         iframe {
@@ -47,6 +59,8 @@
         }
 
         @media screen and (max-width: 768px) {
+            #head a { font-size: 18px; }
+            .form-title { font-size: 26px; }
             iframe { height: 600px; }
         }
     </style>
@@ -56,11 +70,13 @@
     <nav id="head">
         <a href="index.html">Home</a>
         <a href="about.html">About me</a>
+        <a href="https://www.facebook.com/share/1HZkqhFwaZ/" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/subexya_shah?igsh=cnowY245aHZid2Nh" target="_blank">Instagram</a>
     </nav>
 
-    <h2 style="margin-top: 40px;">Book an Appointment</h2>
+    <h2 class="form-title">Book an Appointment</h2>
 
-    <div class="form-container">
+    <div class="iframe-container">
         <iframe 
             src="https://docs.google.com/forms/d/e/1FAIpQLSeYiBGEFK1ZZPsoepPhxJhU9S6s8y1BJ9EQgAMeLB0IKz-1kQ/viewform?embedded=true" 
             frameborder="0" 
